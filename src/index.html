@@ -1,17 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .profile-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+        }
+        
+        .link-card {
+            transition: all 0.3s ease;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes spin-slow {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .animate-spin-slow {
+            animation: spin-slow 3s linear infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(6, 182, 212, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(6, 182, 212, 0);
+            }
+        }
+    </style>
 </head>
+<body class="min-h-screen bg-gradient-to-br from-blue-900 via-teal-800 to-emerald-700 text-white">
+    <div class="container mx-auto px-4 py-12">
+        <!-- Profile Section -->
+        <div class="max-w-2xl mx-auto profile-card p-8 mb-12 border border-white border-opacity-20">
+            <div class="flex flex-col items-center text-center">
+                <!-- Profile Image -->
+                <div class="relative mb-6">
+                    <img src="profile.jpg" 
+                         alt="Profile" 
+                         class="w-32 h-32 rounded-full object-cover border-4 border-white pulse">
+                    
+                      
+                    </div>
+                </div>
+                
+                <!-- Profile Info -->
+                <h1 class="text-3xl font-bold mb-2">Li Jiale</h1>
+                <p class="text-lg text-teal-300 mb-4"> Développeur Web | Designer d’agents IA | Créateur</p>
+                <p class="text-gray-300 mb-6 max-w-md">
+                    Actuellement étudiant à l’ESIEE-IT, je me passionne pour l’intelligence artificielle, la data science et la cybersécurité. 
+                    J’aime explorer de nouvelles technologies et relever des défis numériques pour créer des solutions innovantes et sécurisées.
+                </p>
+                
+                <!-- Social Links -->
+                <div class="flex space-x-4 mb-6">
 
-<body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-  </main>
+                    <a href="https://github.com/Lijiale-coding" class="text-white hover:text-indigo-300 transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/li-jiale-d%C3%A9veloppeur-num%C3%A9rique/" class="text-white hover:text-indigo-300 transition">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        
+        <!-- Links Section -->
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-2xl font-bold mb-6 text-center">My Links</h2>
+            
+            <div class="space-y-4">
+                <!-- CV Link -->
+                <a href="cv.html" class="block">
+                    <div class="link-card bg-white bg-opacity-10 rounded-xl p-4 flex items-center hover:bg-opacity-20">
+                        <div class="bg-blue-500 p-3 rounded-lg mr-4">
+                            <i class="fas fa-file-alt text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">My CV</h3>
+                            <p class="text-sm text-gray-300">Download my resume</p>
+                        </div>
+                        <div class="ml-auto">
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Projects Link -->
+                <a href="project.html" class="block">
+                    <div class="link-card bg-white bg-opacity-10 rounded-xl p-4 flex items-center hover:bg-opacity-20">
+                        <div class="bg-teal-500 p-3 rounded-lg mr-4">
+                            <i class="fas fa-code text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Projects</h3>
+                            <p class="text-sm text-gray-300">See what I've been working on</p>
+                        </div>
+                        <div class="ml-auto">
+                            <i class="fas fa-chevron-right text-gray-400"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="mt-12 text-center text-gray-400 text-sm">
+            <p>© 2025 Li Jiale. 3e L'étudiant de l’ESIEE-IT.</p>
+            <p class="mt-2">Made with <i class="fas fa-heart text-rose-400"></i> and <i class="fas fa-code text-teal-400"></i></p>
+        </div>
+    </div>
+
+    <script>
+        // Simple animation for the profile image on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const profileImg = document.querySelector('img');
+            profileImg.style.transform = 'scale(0)';
+            profileImg.style.transition = 'transform 0.5s ease-out';
+            
+            setTimeout(() => {
+                profileImg.style.transform = 'scale(1)';
+            }, 100);
+            
+            // Add ripple effect to link cards when clicked
+            const linkCards = document.querySelectorAll('.link-card');
+            linkCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    const x = e.clientX - e.target.getBoundingClientRect().left;
+                    const y = e.clientY - e.target.getBoundingClientRect().top;
+                    
+                    const ripple = document.createElement('span');
+                    ripple.className = 'absolute bg-white bg-opacity-30 rounded-full -translate-x-1/2 -translate-y-1/2';
+                    ripple.style.left = `${x}px`;
+                    ripple.style.top = `${y}px`;
+                    ripple.style.width = '5px';
+                    ripple.style.height = '5px';
+                    ripple.style.animation = 'ripple 1s linear';
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 1000);
+                });
+            });
+        });
+    </script>
+    
+    <style>
+        @keyframes ripple {
+            to {
+                transform: scale(40);
+                opacity: 0;
+            }
+        }
+    </style>
 </body>
-
 </html>

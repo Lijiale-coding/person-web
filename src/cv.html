@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Li Jiale · CV & Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .cv-container { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; }
+        .cv-container:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.15); }
+        .download-btn { transition: all 0.3s ease; }
+        .download-btn:hover { transform: translateY(-3px);}
+        @media print { .no-print { display: none !important; } }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-12">
+        <!-- Header Section -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Li Jiale · Profil Professionnel</h1>
+            <p class="text-xl text-gray-600">Étudiant à ESIEE-IT · IA & Big Data · Passionné de IA et cybersécurité</p>
+        </header>
+
+        <!-- Main Content -->
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- CV Preview Section -->
+            <div class="lg:w-2/3">
+                <div class="bg-white rounded-xl cv-container p-6 md:p-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold text-gray-800">Curriculum Vitae</h2>
+                        <button onclick="printCV()" class="no-print bg-blue-100 text-blue-600 px-4 py-2 rounded-lg flex items-center gap-2">
+                            <i class="fas fa-print"></i>
+                            <span>Imprimer</span>
+                        </button>
+                    </div>
+                    
+                    <!-- CV Content -->
+                    <div id="cv-content" class="space-y-8">
+                        <!-- Personal Info -->
+                        <div class="border-b pb-6">
+                            <div class="flex flex-col md:flex-row items-center gap-6">
+                                <div class="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
+                                    <img src="profile.jpg"
+                                    alt="Profile" class="rounded-full w-24 h-24 object-cover">
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-gray-800">Li Jiale</h3>
+                                    <p class="text-gray-600">Développeur Web | Concepteur d’agents IA | Créateur</p>
+                                    <div class="flex flex-wrap gap-2 mt-2">
+                                        <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">Python</span>
+                                        <span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm">SQL</span>
+                                        <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm">Power BI</span>
+                                        <span class="bg-yellow-100 text-yellow-600 px-3 py-1 rounded-full text-sm">Machine Learning</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Info -->
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-3">Coordonnées</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-envelope text-blue-500"></i>
+                                    <span>lijiale524@gmail.com</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-phone text-blue-500"></i>
+                                    <span>+33 6 36 31 76 76</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-map-marker-alt text-blue-500"></i>
+                                    <span>Paris, France</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-globe text-blue-500"></i>
+                                    <span><a href="https://huggingface.co/jialecode7768" target="_blank" class="underline">Mon huggingface</a></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Experience -->
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-3">Expérience</h4>
+                            <div class="space-y-4">
+                                <div class="border-l-2 border-blue-500 pl-4">
+                                    <h5 class="font-bold text-gray-800">Stage Data Analyst - Séguin, Lescar</h5>
+                                    <p class="text-gray-600">Avril 2024 – Juillet 2024</p>
+                                    <p class="text-gray-700 mt-1">Automatisation du reporting clients et création de dashboards interactifs (Excel, VBA)</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Education -->
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-3">Formation</h4>
+                            <div class="border-l-2 border-blue-500 pl-4">
+                                <h5 class="font-bold text-gray-800">Ingénierie Numérique – IA & Big Data</h5>
+                                <p class="text-gray-600">ESIEE-IT, Paris • 2025 - 2028</p>
+                            </div>
+                            <div class="border-l-2 border-blue-500 pl-4 mt-4">
+                                <h5 class="font-bold text-gray-800">BUT Statistique & Informatique Décisionnelle</h5>
+                                <p class="text-gray-600">IUT Pau, UPPA • 2023 - 2025</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Skills -->
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-800 mb-3">Compétences</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <p class="font-medium text-gray-700 mb-1">Data Science / Python</p>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-blue-600 h-2.5 rounded-full" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-700 mb-1">Développement IA</p>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-green-600 h-2.5 rounded-full" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-700 mb-1">Automatisation / Power BI</p>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-purple-600 h-2.5 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-700 mb-1">Cybersécurité</p>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-yellow-600 h-2.5 rounded-full" style="width: 40%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Download Options -->
+            <div class="lg:w-1/3">
+                <div class="bg-white rounded-xl p-6 md:p-8 sticky top-8">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6">Télécharger le CV</h3>
+                    
+                    <div class="space-y-4">
+                        <a href="CV_Li_Jiale_Alternance_AI.pdf" download class="download-btn w-full bg-red-500 hover:bg-red-600 text-white px-6 py-4 rounded-lg flex items-center justify-between transition-all">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-file-pdf text-2xl"></i>
+                                <span>Télécharger en PDF</span>
+                            </div>
+                            <i class="fas fa-download"></i>
+                        </a>
+
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-medium text-gray-800 mb-3">Partager cette page</h4>
+
+                            <!-- Copier le lien -->
+                            <button onclick="copyUrl()" class="bg-teal-500 text-white p-3 rounded-full hover:bg-teal-600 transition-all" title="Copier le lien">
+                                <i class="fas fa-link"></i>
+                            </button>
+                        </div>
+                        <div id="copyMsg" class="text-xs text-teal-200 mt-2" style="display:none;">Lien copié !</div>
+                    </div>
+
+                    <script>
+                        function getPageUrl() {
+                            return window.location.href;
+                        }
+
+                        function copyUrl() {
+                            navigator.clipboard.writeText(getPageUrl()).then(() => {
+                                const msg = document.getElementById('copyMsg');
+                                msg.style.display = 'block';
+                                setTimeout(() => { msg.style.display = 'none'; }, 2000);
+                            });
+                        }
+                    </script>
+
+                    
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h4 class="font-medium text-gray-800 mb-3">Contact rapide </h4>
+                        <p class="text-gray-600 mb-4">Ouvert aux opportunités et collaborations.</p>
+                        <a href="mailto:lijiale524@gmail.com" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 transition-all">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Envoyer un email</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function printCV() {
+            const cvContent = document.getElementById('cv-content').cloneNode(true);
+            const printWindow = window.open('', '', 'width=800,height=600');
+            printWindow.document.write(`
+                <html>
+                    <head>
+                        <title>CV Li Jiale - Impression</title>
+                        <style>
+                            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+                            h1, h2, h3, h4 { color: #111; }
+                            .cv-section { margin-bottom: 20px; }
+                            .skill-bar { background: #eee; height: 10px; border-radius: 5px; overflow: hidden; }
+                            .skill-level { height: 100%; background: #4f46e5; }
+                        </style>
+                    </head>
+                    <body>
+                        <h1>Li Jiale - Curriculum Vitae</h1>
+                        ${cvContent.innerHTML}
+                        <p style="text-align: center; margin-top: 30px; color: #666;">
+                            Imprimé depuis mon portfolio - ${new Date().toLocaleDateString()}
+                        </p>
+                    </body>
+                </html>
+            `);
+            printWindow.document.close();
+            printWindow.print();
+        }
+    </script>
+</body>
+</html>
